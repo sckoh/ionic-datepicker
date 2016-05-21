@@ -14,20 +14,18 @@
         <div class="col col-80 text-center">
           <div class="row select_section">
             <div class="col-50 padding_right_5px">
-              <label class="item item-input item-select month_select">
-                <span class="input-label">&nbsp;</span>
-                <select ng-model="data.currentMonth" ng-change="monthChanged(data.currentMonth)">
-                  <option ng-repeat="month in monthsList" ng-selected="month == data.currentMonthSelected" value="{{month}}">
-                    {{month}}
-                  </option>
-                </select>
-              </label>
+              <div class="item item-input item-select month_select" modal-select required on-select="monthChanged(data.currentMonth)" ng-model="data.currentMonth" options="monthsList" modal-title="选择月份" cancel-button="取消" hide-reset="true" selected-class="text-primary" load-list-message="加载中">{{data.currentMonth}}
+                <div class="option">
+                  {{ option }}
+                </div>
+              </div>
             </div>
             <div class="col-50 padding_left_5px">
-              <label class="item item-input item-select year_select">
-                <span class="input-label">&nbsp;</span>
-                <select ng-model="data.currentYear" ng-change="yearChanged(data.currentYear)" ng-options="year for year in yearsList"></select>
-              </label>
+              <div class="item item-input item-select year_select" modal-select required on-select="yearChanged(data.currentYear)" ng-model="data.currentYear" options="yearsList" modal-title="选择年份" cancel-button="取消" hide-reset="true" selected-class="text-primary" load-list-message="加载中">{{data.currentYear}}
+                <div class="option">
+                  {{ option }}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -38,6 +36,7 @@
           </button>
         </div>
       </div>
+
       <div class="calendar_grid">
         <div class="row padding-top weeks_row">
           <div class="col text-center font_bold"
